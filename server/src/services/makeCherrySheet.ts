@@ -25,16 +25,16 @@ const SHEET_FOOTER =
 
 const QUESTION = `<div class="question">
 <svg viewBox="0 0 200 75">
-  <text x="0" y="7" fill="black" text-anchor="left" font-size="9" alignment-baseline="central">PLACEHOLDER-01)</text>
-  <text x="30" y="20" fill="black" text-anchor="middle" font-size="24" alignment-baseline="central">PLACEHOLDER-02</text>
-  <text x="60" y="20" fill="black" text-anchor="middle" font-size="24" alignment-baseline="central">PLACEHOLDER-03</text>
-  <text x="90" y="20" fill="black" text-anchor="middle" font-size="24" alignment-baseline="central">PLACEHOLDER-04</text>
-  <text x="120" y="20" fill="black" text-anchor="middle" font-size="24" alignment-baseline="central">=</text>
-  <path d="M 70 55 L 85 35" stroke="gray" stroke-width="1" fill="none" />
-  <path d="M 95 35 L 110 55" stroke="gray" stroke-width="1" fill="none" />
-  <circle cx="70" cy="57" r="15" stroke="gray" stroke-width="1" fill="white" />
-  <circle cx="110" cy="57" r="15" stroke="gray" stroke-width="1" fill="white" />
-  <rect x="145" y="5" width="30" height="30" stroke="gray" stroke-width="1" fill="white" />
+  <text x="5" y="7" fill="black" text-anchor="left" font-size="9" alignment-baseline="central">PLACEHOLDER-01)</text>
+  <text x="35" y="20" fill="black" text-anchor="middle" font-size="24" alignment-baseline="central">PLACEHOLDER-02</text>
+  <text x="65" y="20" fill="black" text-anchor="middle" font-size="24" alignment-baseline="central">PLACEHOLDER-03</text>
+  <text x="95" y="20" fill="black" text-anchor="middle" font-size="24" alignment-baseline="central">PLACEHOLDER-04</text>
+  <text x="125" y="20" fill="black" text-anchor="middle" font-size="24" alignment-baseline="central">=</text>
+  <path d="M 75 55 L 90 35" stroke="gray" stroke-width="1" fill="none" />
+  <path d="M 100 35 L 115 55" stroke="gray" stroke-width="1" fill="none" />
+  <circle cx="75" cy="57" r="15" stroke="gray" stroke-width="1" fill="white" />
+  <circle cx="115" cy="57" r="15" stroke="gray" stroke-width="1" fill="white" />
+  <rect x="150" y="3" width="34" height="34" stroke="gray" stroke-width="1" fill="white" />
   <!-- 全体の枠（見やすさのため） -->
 </svg></div>`;
 
