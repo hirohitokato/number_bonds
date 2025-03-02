@@ -8,12 +8,31 @@ export function makeQuestion(
   if (operator === Operator.RANDOM) {
     operator = Math.random() > 0.5 ? Operator.ADD : Operator.SUB;
   }
+
   if (!lhs) {
-    lhs = getRandomInt(1, 9);
+    switch (operator) {
+      case Operator.ADD:
+        lhs = getRandomInt(1, 10);
+        break;
+      case Operator.SUB:
+        lhs = getRandomInt(11, 19);
+        break;
+      default:
+        throw new Error("Invalid operator type.");
+    }
   }
 
   if (!rhs) {
-    rhs = getRandomInt(10 - lhs % 10, 9);
+    switch (operator) {
+      case Operator.ADD:
+        rhs = getRandomInt(10 - lhs % 10, 10);
+        break;
+      case Operator.SUB:
+        rhs = getRandomInt(lhs - 9, 10);
+        break;
+      default:
+        throw new Error("Invalid operator type.");
+    }
   }
 
   let answer: number;

@@ -1,0 +1,83 @@
+/* 用紙サイズ（A4）に合わせた全体レイアウト */
+.sheet {
+    width: 210mm;
+    height: 290mm;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid red;
+    /* 印刷プレビュー用の目安 */
+    display: block;
+}
+
+/* 印刷用：シートのうち、最後以外にページ区切りを適用 */
+@media print {
+    .sheet:not(:last-child) {
+        break-after: page;
+        page-break-after: always;
+    }
+}
+
+/* 右上に配置するヘッダー */
+.header {
+    position: absolute;
+    top: 10mm;
+    right: 10mm;
+    display: flex;
+    align-items: center;
+    gap: 10mm;
+    font-family: sans-serif;
+}
+
+.header .title {
+    font-size: 24pt;
+    font-weight: bold;
+    text-align: left;
+}
+
+.header .name {
+    font-size: 14pt;
+    /* 名前を書く欄を大きくする */
+    border: 1px solid #555;
+    border-radius: 10px;
+    padding: 15px 10px;
+    min-width: 100mm;
+    /* ここで記入欄の横幅を調整 */
+}
+
+.footer {
+    position: absolute;
+    bottom: 0mm;
+    left: 0mm;
+    right: 0mm;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+/* ヘッダー下部にグリッド領域を配置 */
+.grid {
+    position: absolute;
+    top: 40mm;
+    /* ヘッダーの下側から */
+    left: 0mm;
+    right: 0mm;
+    bottom: 0mm;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1mm;
+}
+
+/* 各問題枠のスタイル（枠線などは任意） */
+.problem {
+    border: 1px dashed #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 問題内のsvgは枠に合わせて自動拡大 */
+.problem svg {
+    width: 100%;
+    height: 100%;
+}
