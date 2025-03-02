@@ -41,7 +41,7 @@ const QUESTION = `<div class="question">
 export function makeCherrySheet(num_questions: number): string {
   const questions: Question[] = [];
   for (let i = 0; i < num_questions; i++) {
-    questions.push(makeQuestion(null, null));
+    questions.push(makeQuestion(null, null, null, questions));
   }
 
   // Calculate the total number of pages required
@@ -60,7 +60,7 @@ export function makeCherrySheet(num_questions: number): string {
     ) {
       const index = qIndex + page * MAX_QUESTIONS_PER_PAGE;
       const question = questions[index];
-      const operator = question.operator === Operator.ADD ? "+" : "-";
+      const operator = question.operator === Operator.ADD ? "+" : "−";
       question_divs += QUESTION
         .replace("PLACEHOLDER-01", `${index + 1}`)
         .replace("PLACEHOLDER-02", `${question.lhs}`)
@@ -71,7 +71,6 @@ export function makeCherrySheet(num_questions: number): string {
       "PLACEHOLDER",
       `${page + 1} / ${num_pages}`,
     );
-    console.log("-----------------");
   }
 
   const content = HTML_BODY.replace("PLACEHOLDER", `${question_divs}`);

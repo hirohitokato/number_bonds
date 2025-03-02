@@ -1,7 +1,6 @@
 export enum Operator {
   ADD = "ADD",
   SUB = "SUB",
-  RANDOM = "RANDOM",
 }
 
 /// A question object.
