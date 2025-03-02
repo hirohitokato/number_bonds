@@ -57,6 +57,9 @@ export function makeQuestion(
     if (!questions.some((q) => q.isEqual(newQuestion))) {
       return newQuestion;
     }
+    lhs = null;
+    rhs = null;
+    operator = null;
     numRetries++;
   }
   console.log("Failed to generate a unique question.");
