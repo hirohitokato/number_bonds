@@ -8,6 +8,10 @@ import { serveStatic } from "https://deno.land/x/hono/middleware.ts";
 const app = new Hono({ strict: true });
 app.use(compress());
 
+console.warn("HOME");
+console.warn(Deno.env.get("HOME"));
+console.warn("CWD");
+console.warn(Deno.env.get("CWD"));
 // ルーティングを登録
 registerRoutes(app);
 app.get("/static/*", serveStatic({ root: "./" }));
