@@ -43,7 +43,8 @@ export function makeCherrySheet(num_questions: number): string {
   for (let i = 0; i < num_questions; i++) {
     questions.push(makeQuestion(null, null, null, questions));
   }
-
+  console.error("current dir: ");
+  console.error(Deno.cwd());
   // Calculate the total number of pages required
   const num_pages = Math.ceil(num_questions / MAX_QUESTIONS_PER_PAGE);
   let question_divs = "";

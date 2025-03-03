@@ -9,8 +9,6 @@ const app = new Hono({ strict: true });
 app.use(compress());
 
 // ルーティングを登録
-console.error("current dir: ");
-console.error(Deno.cwd());
 registerRoutes(app);
 app.get("/static/*", serveStatic({ root: "./" }));
 
