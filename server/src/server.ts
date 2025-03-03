@@ -8,9 +8,11 @@ import { serveStatic } from "https://deno.land/x/hono/middleware.ts";
 const app = new Hono({ strict: true });
 app.use(compress());
 
+console.error("-----begin------");
 for await (const entry of Deno.readDir(".")) {
-  console.log(entry.name);
+  console.error(entry.name);
 }
+console.error("-----end------");
 // ルーティングを登録
 registerRoutes(app);
 app.get("/static/*", serveStatic({ root: "./" }));
