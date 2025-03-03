@@ -11,10 +11,17 @@
 }
 
 /* 印刷用：シートのうち、最後以外にページ区切りを適用 */
-@media print {
+/* memo: 以下の設定だとChromeで設定が効かないので(Safari/EdgeはOK)、専用の処理を入れた方を使っている */
+/* @media print {
     .sheet:not(:last-child) {
         break-after: page;
         page-break-after: always;
+    }
+} */
+@media print and (-webkit-min-device-pixel-ratio:0) {
+    .sheet:not(:last-child) {
+        page-break-after: auto;
+        break-after: auto;
     }
 }
 
