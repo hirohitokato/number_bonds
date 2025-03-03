@@ -6,9 +6,10 @@ const router = new Hono();
 router.get(
   "/",
   (c: Context) => {
-    let { num_questions } = c.req.query() as { num_questions?: number };
-    num_questions = num_questions || 5;
-    const content = makeCherrySheet(num_questions);
+    let { num_sheets } = c.req.query() as { num_sheets?: number };
+    num_sheets = num_sheets || 1;
+    // 10問単位で作成する
+    const content = makeCherrySheet(num_sheets * 10);
     return c.html(content);
   },
 );
