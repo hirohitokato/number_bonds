@@ -1,5 +1,4 @@
 import { Operator, Question } from "./question.ts";
-import { makeQuestion } from "./makeQuestion.ts";
 
 const MAX_QUESTIONS_PER_PAGE = 10;
 
@@ -38,14 +37,9 @@ const QUESTION = `<div class="question">
   <!-- 全体の枠（見やすさのため） -->
 </svg></div>`;
 
-export function makeCherrySheet(num_questions: number): string {
-  const questions: Question[] = [];
-  for (let i = 0; i < num_questions; i++) {
-    questions.push(makeQuestion(null, null, null, questions));
-  }
-
+export function makeCherrySheet(questions: Question[]): string {
   // Calculate the total number of pages required
-  const num_pages = Math.ceil(num_questions / MAX_QUESTIONS_PER_PAGE);
+  const num_pages = Math.ceil(questions.length / MAX_QUESTIONS_PER_PAGE);
   let question_divs = "";
   for (let page = 0; page < num_pages; page++) {
     question_divs += SHEET_HEADER;
