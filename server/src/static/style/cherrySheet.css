@@ -19,18 +19,11 @@
     }
 } */
 @media print {
-
     /* 最後以外のシートにのみ、擬似要素で改ページを追加 */
     .sheet:not(:last-of-type)::after {
         content: "";
         display: block;
         page-break-after: always;
-    }
-
-    @page {
-        size: A4;
-        margin: 10mm;
-        /* 必要に応じて調整 */
     }
 }
 
