@@ -25,6 +25,12 @@
         display: block;
         page-break-after: always;
     }
+    /* 印刷するときのデフォルト設定として誘導しておく */
+    @page {
+        size: A4;
+        margin: 10mm;
+        /* 必要に応じて調整 */
+    }
 }
 
 /* 右上に配置するヘッダー */
