@@ -1,17 +1,16 @@
 import { createContext, ReactNode, useState } from 'react';
-
-// 読み込んだExcelデータの型定義（任意に拡張可能）
-export interface ExcelData {
-    [key: string]: any;
-}
+import * as XLSX from 'xlsx';
 
 // コンテキストで管理する状態とその更新関数の型定義
 export interface ExcelDataContextType {
-    excelData: ExcelData | null;
-    setExcelData: React.Dispatch<React.SetStateAction<ExcelData | null>>;
+    workBook: XLSX.WorkBook | null;
+    setWorkBook: React.Dispatch<React.SetStateAction<XLSX.WorkBook | null>>;
 }
 
 // コンテキストの初期値はundefinedにして、Providerの使用を強制する
+// Warning: Fast refresh only works when a file only exports components.
+//          Move your React context(s) to a separate file.eslint(react-refresh/only-export-components)
+// FIXME: このContextだけ別ファイルに切り出して、開発時のReact動作効率を高める
 export const ExcelDataContext = createContext<ExcelDataContextType | undefined>(undefined);
 
 // Providerコンポーネントのpropsの型定義
@@ -20,7 +19,7 @@ interface ExcelDataProviderProps {
 }
 
 export const ExcelDataProvider: React.FC<ExcelDataProviderProps> = ({ children }) => {
-    const [excelData, setExcelData] = useState<ExcelData | null>(null);
+    const [workBook, setWorkBook] = useState<XLSX.WorkBook | null>(null);
 
-    return <ExcelDataContext.Provider value={{ excelData, setExcelData }}>{children}</ExcelDataContext.Provider>;
+    return <ExcelDataContext.Provider value={{ workBook, setWorkBook }}>{children}</ExcelDataContext.Provider>;
 };

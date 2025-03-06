@@ -2,7 +2,7 @@ import { useCallback, useContext, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import * as XLSX from 'xlsx';
 
-import { ExcelData, ExcelDataContext } from './provider/ExcelDataProvider';
+import { ExcelDataContext } from './provider/ExcelDataProvider';
 
 import './ExcelDropzone.css';
 
@@ -12,7 +12,7 @@ function ExcelDropzone() {
     if (!context) {
         throw new Error('ExcelDataContext is undefined. Ensure you are using it.');
     }
-    const { setExcelData } = context;
+    const { setWorkBook } = context;
 
     // エラーメッセージをstateに保持しておき、表示に用いる
     const [error, setError] = useState<string>('');
@@ -30,37 +30,26 @@ function ExcelDropzone() {
                 return;
             }
 
+            // Excelファイルの読み込み → Contextへの保存
             const reader = new FileReader();
-
-            // ファイル読み込み完了時の処理
             reader.onload = (e: ProgressEvent<FileReader>) => {
                 const binaryStr = e.target?.result;
                 if (binaryStr) {
                     // xlsxライブラリでファイルを読み込む（バイナリ文字列として）
-                    const workbook = XLSX.read(binaryStr, { type: 'binary' });
-
-                    // 指定のシート名「シート２」が存在するかチェック
-                    if (!workbook.SheetNames.includes('Sheet2')) {
-                        setError('"Sheet2" というシートが見つかりませんでした');
-                        return;
-                    }
-
-                    const worksheet = workbook.Sheets['Sheet2'];
-                    // JSONに変換。初期行をキーとする形に変換する場合はheaderオプションを省略
-                    const jsonResult = XLSX.utils.sheet_to_json(worksheet) as ExcelData[];
-                    setExcelData(jsonResult);
+                    const wb = XLSX.read(binaryStr, { type: 'binary' });
+                    // 読み込んだ結果をそのままContextで保持
+                    setWorkBook(wb);
                 }
             };
-
-            // ファイル読み込みエラー時の処理
             reader.onerror = () => {
+                setWorkBook(null);
                 setError('ファイル読み込み中にエラーが発生しました');
             };
 
-            // バイナリ文字列としてファイルを読み込み、onloadをトリガーする
+            // ファイルを実際に読み込み、onloadをトリガーする
             reader.readAsArrayBuffer(file);
         },
-        [setExcelData]
+        [setWorkBook]
     );
 
     // useDropzone のフックでドラッグ＆ドロップ領域の各プロパティを取得
