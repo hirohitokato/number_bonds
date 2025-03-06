@@ -1,0 +1,26 @@
+{
+    // Qiita記事「VSCodeでReact/Viteのプロジェクトをデバッグする」を参考に設定
+    // ※vscodeのデバッグ操作メニューで停止しても、TERMINALに残っているサービス
+    // 　(preLaunchTaskで起動したtasks.jsonの設定)は動き続けたままなので注意。
+    //
+    // reference: https://qiita.com/tokoro/items/d4033fc940431e0f53e5
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "npm-run-dev"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Start Dev Server and Debug",
+            "configurations": ["Launch Chrome against localhost"],
+            "preLaunchTask": "npm-run-dev",
+            "stopAll": true
+        }
+    ]
+}
