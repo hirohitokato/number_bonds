@@ -1,0 +1,67 @@
+/* テーブルを囲むコンテナ。横幅いっぱいに表示し、スクロールが必要な場合に備えてオーバーフローを設定 */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/* テーブル全体のスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ヘッダー部分のスタイル */
+thead {
+    background-color: #4c4c4c;
+    color: #eee;
+}
+
+thead th {
+    padding: 12px 16px;
+    font-weight: bold;
+}
+
+/* 1列目（チェックボックス列）は中央寄せかつ狭い幅に設定 */
+thead th:first-child,
+tbody td:first-child {
+    text-align: center;
+    width: 40px; /* チェックボックスが収まる幅 */
+}
+
+/* Name列（2列目）は左寄せ */
+thead th:nth-child(2),
+tbody td:nth-child(2) {
+    text-align: left;
+}
+
+/* Sheet列（4列目）は右寄せ */
+thead th:nth-child(4),
+tbody td:nth-child(4) {
+    text-align: right;
+}
+
+/* Type列（3列目）は中央寄せまたはデフォルト（ここでは中央寄せの例） */
+thead th:nth-child(3),
+tbody td:nth-child(3) {
+    text-align: center;
+}
+
+/* テーブルボディのセルスタイル */
+tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* マウスオーバー時の行のハイライト効果 */
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* チェックボックスのスタイル調整 */
+input[type='checkbox'] {
+    transform: scale(1.8);
+    cursor: pointer;
+}
