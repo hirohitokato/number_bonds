@@ -1,0 +1,12 @@
+.dnd-zone {
+    border: 3px dashed #cccccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 11px;
+    margin-bottom: 20px;
+    width: 600px;
+}
+
+.error-message {
+    color: red;
+}
