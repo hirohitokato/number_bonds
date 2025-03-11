@@ -5,7 +5,7 @@
     margin: 0 auto;
     position: relative;
     box-sizing: border-box;
-    border: 1px solid red;
+    border: 1px solid darkgray;
     /* 印刷プレビュー用の目安 */
     display: block;
 }
@@ -45,7 +45,7 @@
 }
 
 .header .title {
-    font-size: 24pt;
+    font-size: 16pt;
     font-weight: bold;
     text-align: left;
 }
@@ -67,6 +67,14 @@
     right: 0mm;
     text-align: center;
     font-family: sans-serif;
+}
+
+.qrcode {
+    position: absolute;
+    display: flex;
+    z-index: 9999;
+    top: 0mm;
+    left: 0mm;
 }
 
 /* ヘッダー下部にグリッド領域を配置 */

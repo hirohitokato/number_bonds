@@ -4,7 +4,8 @@
   },
   "imports": {
     "hono": "jsr:@hono/hono@^4.7.2",
-    "mod": "https://deno.land/std@0.224.0/dotenv/mod.ts"
+    "mod": "https://deno.land/std@0.224.0/dotenv/mod.ts",
+    "qr-code-styling": "npm:qr-code-styling@^1.9.1"
   },
   "compilerOptions": {
     "jsx": "precompile",
