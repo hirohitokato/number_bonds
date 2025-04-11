@@ -1,4 +1,3 @@
-import QrCodeWithLogo from "qr-code-styling";
 import { Operator, Question } from "./question.ts";
 
 const MAX_QUESTIONS_PER_PAGE = 10;
@@ -8,37 +7,14 @@ const HTML_BODY = `<!DOCTYPE html><html lang="ja">
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>サクランボ計算</title>
     <link rel="stylesheet" type="text/css" href="/static/style/cherrySheet.css"/>
-    <script src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
 </head>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const canvasElements = document.querySelectorAll('div.qrcode');
-      canvasElements.forEach(canvas => {
-        const qrCode = new QRCodeStyling({
-          width: 120, height: 120,
-          data: "abcdefabcdef,202503111954,2+8,14-8,18-9,11-8,8+4,17-8,13-9,4+7,6+5,16-9",
-          dotsOptions: {
-            color: "#000000",   // ドットの色
-          },
-          backgroundOptions: {
-            color: "#ffffff"    // 背景色
-          },
-          imageOptions: {
-            crossOrigin: "anonymous",
-            margin: 10          // 画像のマージン
-          }
-        });
-        // 対象のcanvas要素にQRコードを埋め込む
-        qrCode.append(canvas);
-      });
-    });
-  </script>
 <body>PLACEHOLDER</body>
 </html>`;
 
 const SHEET_HEADER = `
 <div class="sheet">
-    <div class="qrcode"></div>
+    <!-- QRコードの例（コメントアウト中） -->
+    <!-- <img class="qrcode" src="/qrcode?size=120&data=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/> -->
     <div class="header">
       <div class="title">さくらんぼけいさん</div>
       <div class="name">なまえ：</div>

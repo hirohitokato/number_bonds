@@ -37,6 +37,7 @@
 .header {
     position: absolute;
     top: 10mm;
+    left: 10mm;
     right: 10mm;
     display: flex;
     align-items: center;
@@ -63,7 +64,7 @@
 .footer {
     position: absolute;
     bottom: 0mm;
-    left: 0mm;
+    left: 0mm; /* QRコードを表示するときはこの行は消して右寄せにする */
     right: 0mm;
     text-align: center;
     font-family: sans-serif;

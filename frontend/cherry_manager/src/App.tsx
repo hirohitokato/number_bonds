@@ -16,7 +16,7 @@ function App() {
                 </div>
                 <ExcelDropzone />
                 <TableView />
-                <p className="read-the-docs">2025/03/06 プロトタイプ</p>
+                <p className="read-the-docs">2025/03/12 プロトタイプ</p>
             </ExcelDataProvider>
         </>
     );
