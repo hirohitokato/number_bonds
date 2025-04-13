@@ -85,7 +85,7 @@ function TableView() {
         const jsonString = JSON.stringify(selectedData);
         // URLエンコードしてクエリパラメータとして付与
         const url = `http://localhost:8000/cherry?num_sheets=4&data=${encodeURIComponent(jsonString)}`;
-        // 新しいウィンドウでgoogle.comへ遷移
+        // 新しいウィンドウで問題プリントへ遷移
         window.open(url, '_blank');
     };
 

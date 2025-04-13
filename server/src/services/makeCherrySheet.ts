@@ -39,6 +39,20 @@ const QUESTION = `<div class="question">
   <!-- 全体の枠（見やすさのため） -->
 </svg></div>`;
 
+const QUESTION_MINUS = `<div class="question">
+<svg viewBox="0 0 200 75">
+  <text x="5" y="7" fill="black" text-anchor="left" font-size="9" alignment-baseline="central">PLACEHOLDER-01)</text>
+  <text x="35" y="20" fill="black" text-anchor="middle" font-size="24" alignment-baseline="central">PLACEHOLDER-02</text>
+  <text x="65" y="20" fill="black" text-anchor="middle" font-size="24" alignment-baseline="central">PLACEHOLDER-03</text>
+    <text x="95" y="20" fill="black" text-anchor="middle" font-size="24" alignment-baseline="central">PLACEHOLDER-04</text>
+    <text x="125" y="20" fill="black" text-anchor="middle" font-size="24" alignment-baseline="central">=</text>
+    <path d="M 40 35 L 60 55" stroke="gray" stroke-width="1" fill="none" />
+    <path d="M 20 55 L 30 35" stroke="gray" stroke-width="1" fill="none" />
+    <circle cx="17" cy="57" r="15" stroke="gray" stroke-width="1" fill="white" />
+    <circle cx="60" cy="57" r="15" stroke="gray" stroke-width="1" fill="white" />
+    <rect x="150" y="3" width="34" height="34" stroke="gray" stroke-width="1" fill="white" />
+</svg></div>`;
+
 export function makeCherrySheet(questions: Question[]): string {
   // Calculate the total number of pages required
   const num_pages = Math.ceil(questions.length / MAX_QUESTIONS_PER_PAGE);
@@ -56,8 +70,9 @@ export function makeCherrySheet(questions: Question[]): string {
     ) {
       const index = qIndex + page * MAX_QUESTIONS_PER_PAGE;
       const question = questions[index];
+      const template = question.operator === Operator.ADD ? QUESTION : QUESTION_MINUS;
       const operator = question.operator === Operator.ADD ? "+" : "−";
-      question_divs += QUESTION
+      question_divs += template
         .replace("PLACEHOLDER-01", `${index + 1}`)
         .replace("PLACEHOLDER-02", `${question.lhs}`)
         .replace("PLACEHOLDER-03", `${operator}`)
